@@ -21,7 +21,6 @@
             <th>Title</th>
             <th>Overview</th>
             <th>tmdb_id</th>
-            <th>Translations</th>
             <th>Action</th>
         </tr>
         </thead>
@@ -30,9 +29,8 @@
             <tr>
                 <td>{{ $serie->id }}</td>
                 <td>{{ $serie->title }}</td>
-                <td>{{ $serie->overview }}</td>
+                <td>{{ $serie->overview }} </td>
                 <td>{{ $serie->tmdb_id }}</td>
-                <td>{{ $serie->translations }}</td>
                 <td> <a href="{{ route('serie.show', $serie->id) }}">View</a></td>
             </tr>
         @endforeach
