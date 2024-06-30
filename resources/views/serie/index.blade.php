@@ -8,6 +8,12 @@
 </head>
 <body>
 <div>
+    <a href ="{{ route('serie.show-pl') }}">
+        <button type="submit">PL</button>
+    </a>
+    <a href ="{{ route('serie.show-de') }}">
+        <button type="submit">DE</button>
+    </a>
     <table class="series-table">
         <thead>
         <tr>

@@ -8,6 +8,12 @@
 </head>
 <body>
 <div>
+    <a href ="{{ route('movie.show-pl') }}">
+        <button type="submit">PL</button>
+    </a>
+    <a href ="{{ route('movie.show-de') }}">
+        <button type="submit">DE</button>
+    </a>
     <table class="movies-table">
         <thead>
         <tr>
@@ -15,7 +21,6 @@
             <th>Title</th>
             <th>Overview</th>
             <th>tmdb_id</th>
-            <th>test</th>
             <th>Action</th>
         </tr>
         </thead>
@@ -26,11 +31,6 @@
                 <td>{{ $movie->title }}</td>
                 <td>{{ $movie->overview }}</td>
                 <td>{{ $movie->tmdb_id }}</td>
-                <td>
-                <a href ="{{ route('movie.show-pl') }}">
-                    <button type="submit">PL</button>
-                </a>
-                </td>
                 <td> <a href="{{route('movie.show',$movie->id)}}">View</a></td>
             </tr>
         @endforeach

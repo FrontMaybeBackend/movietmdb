@@ -4,15 +4,16 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\MorphMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+
 
 class Serie extends Model
 {
     use HasFactory;
 
-    public function translations(): MorphMany
+    public function translations(): HasMany
     {
-        return $this->morphMany(Translations::class,'translatable');
+        return $this->hasMany(TranslationSerie::class,'id','serie_id');
     }
 
     protected $fillable = [

@@ -6,12 +6,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Translations extends Model
+class TranslationSerie extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'movie_id',
+        'serie_id',
         'trans_pl_title',
         'trans_pl_overview',
         'trans_de_title',
@@ -19,9 +19,8 @@ class Translations extends Model
 
     ];
 
-    public function movie(): BelongsTo
+    public function serie(): BelongsTo
     {
-        return $this->belongsTo(Movie::class,'id','movie_id');
+        return $this->belongsTo(serie::class,'id','serie_id');
     }
-
 }

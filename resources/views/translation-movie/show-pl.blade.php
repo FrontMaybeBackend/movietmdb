@@ -18,13 +18,17 @@
         <tbody>
         @foreach($translationsPL as $translation)
             <tr>
-                <td>{{ $translation->trans_pl_title }}</td>
+                <td>@if ($translation->trans_pl_title)
+                        {{ $translation->trans_pl_title }}
+                    @else
+                        BRAK TŁUMACZENIA
+                    @endif</td>
                 <td>{{ $translation->trans_pl_overview }}</td>
             </tr>
         @endforeach
         </tbody>
     </table>
-
+    {{$translationsPL->links()}}
 
 </div>
 </body>

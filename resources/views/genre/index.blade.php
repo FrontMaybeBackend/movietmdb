@@ -22,7 +22,7 @@
         @foreach($genres as $genre)
             <tr>
                 <td>{{ $genre->id }}</td>
-                <td>{{ $genre->name }}</td>
+                <td>{{ $genre->title }}</td>
                 <td>{{ $genre->tmdb_id }}</td>
                 <td>{{ $genre->translations }}</td>
                 <td><a href="{{ route('genre.show', $genre->id) }}">View</a></td>

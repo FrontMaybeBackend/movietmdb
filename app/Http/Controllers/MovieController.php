@@ -25,13 +25,9 @@ class MovieController extends Controller
         ]);
     }
 
-    public function showTranslateInPL()
-    {
-        $translationsPL = DB::table('translations')->whereNotNull('trans_pl_title')->get();
-        return view('movie.show-pl', [
-            'translationsPL' => $translationsPL
-        ]);
-    }
+
+
+
 
 
 }
