@@ -22,7 +22,9 @@ Route::get('/movie/show/de', [TranslationMovieController::class, 'showTranslateM
 Route::get('/series/show/pl', [TranslationSerieController::class, 'showTranslateSerieInPL'])->name('serie.show-pl');
 Route::get('/series/show/de', [TranslationSerieController::class, 'showTranslateSerieInDE'])->name('serie.show-de');
 
-
+//Translations genre
+Route::get('/genres/show/pl', [GenreController::class, 'showTranslateGenreInPL'])->name('genre.show-pl');
+Route::get('/genres/show/de', [GenreController::class, 'showTranslateGenreInDE'])->name('genre.show-de');
 
 Route::get('/serie/{serie}', [SerieController::class,'show'])->name('serie.show');
 Route::get('/serie', [SerieController::class,'index'])->name('serie');

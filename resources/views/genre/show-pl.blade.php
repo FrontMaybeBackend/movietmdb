@@ -17,26 +17,16 @@
     <table class="genres-table">
         <thead>
         <tr>
-            <th>Id</th>
             <th>Name</th>
-            <th>tmdb_id</th>
-            <th>Translations</th>
-            <th>Action</th>
         </tr>
         </thead>
         <tbody>
-        @foreach($genres as $genre)
-            <tr>
-                <td>{{  $genre->id }}</td>
-                <td>{{ $genre->title}}</td>
-                <td>{{ $genre->tmdb_id }}</td>
-                <td>{{ $genre->translations }}</td>
-                <td><a href="{{ route('genre.show', $genre->id) }}">View</a></td>
-            </tr>
+        @foreach($translationsPL as $translations)
+                <td>{{  __('genres.' . $translations->title) }}</td>
         @endforeach
         </tbody>
     </table>
-    {{ $genres->links() }}
+    {{$translationsPL->links()}}
 </div>
 </body>
 </html>
