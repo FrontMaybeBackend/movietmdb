@@ -31,13 +31,13 @@ displays all movies from the database with PL language translation.
 shows all movies from the database with DE translation.
 
 
-/series
+/serie
  shows all series from the database.
 
 /serie/{serie}
 retrieves series by ID, retrieves data from the database and displays values
 
-/series/display/pl 
+/serie/display/pl 
 displays all series from the database and translates them into PL.
 
 /serie/show/de
@@ -50,10 +50,10 @@ displays all genres from the database with pagination.
 /genre/{genre} 
 retrieves the genre by id, retrieves data from the db and displays values.
 
-/genres/show/pl 
+/genre/show/pl 
 displays all genres from the database, with PL language translation.
 
-/genres/show/de
+/genre/show/de
 displays all genres from the database, translated into DE.
 
 ```
