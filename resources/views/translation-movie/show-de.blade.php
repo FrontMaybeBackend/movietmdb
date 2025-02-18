@@ -16,7 +16,7 @@
         </tr>
         </thead>
         <tbody>
-        @foreach($translationsDE as $translation)
+        @foreach($translations as $translation)
             <tr>
                 <td>
                     @if ($translation->trans_de_title)
@@ -30,7 +30,7 @@
         @endforeach
         </tbody>
     </table>
-    {{$translationsDE->links()}}
+    {{$translations->links()}}
 
 </div>
 </body>

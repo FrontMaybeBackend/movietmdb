@@ -16,7 +16,7 @@
         </tr>
         </thead>
         <tbody>
-        @foreach($translationsPL as $translation)
+        @foreach($translations as $translation)
             <tr>
                 <td>@if ($translation->trans_pl_title)
                         {{ $translation->trans_pl_title }}
@@ -28,7 +28,7 @@
         @endforeach
         </tbody>
     </table>
-    {{$translationsPL->links()}}
+    {{$translations->links()}}
 
 </div>
 </body>

@@ -8,12 +8,13 @@
 </head>
 <body>
 <div>
-    <a href ="{{ route('genre.show-pl') }}">
-        <button type="submit">PL</button>
+    <a href="{{ route('genre.translate', ['language' => 'pl']) }}">
+        <button>PL</button>
     </a>
-    <a href ="{{ route('genre.show-de') }}">
-        <button type="submit">DE</button>
+    <a href="{{ route('genre.translate', ['language' => 'de']) }}">
+        <button>DE</button>
     </a>
+
     <table class="genres-table">
         <thead>
         <tr>

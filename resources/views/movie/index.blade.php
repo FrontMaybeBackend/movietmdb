@@ -8,11 +8,11 @@
 </head>
 <body>
 <div>
-    <a href ="{{ route('movie.show-pl') }}">
-        <button type="submit">PL</button>
+    <a href="{{ route('movie.translate', ['language' => 'pl']) }}">
+        <button>PL</button>
     </a>
-    <a href ="{{ route('movie.show-de') }}">
-        <button type="submit">DE</button>
+    <a href="{{ route('movie.translate', ['language' => 'de']) }}">
+        <button>DE</button>
     </a>
     <table class="movies-table">
         <thead>

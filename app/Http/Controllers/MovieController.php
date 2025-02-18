@@ -3,31 +3,26 @@
 namespace App\Http\Controllers;
 
 use App\Models\Movie;
-use App\Models\Translations;
-use Illuminate\Support\Facades\DB;
+use Illuminate\View\View;
 
 class MovieController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(): View
     {
-        return view('movie.index',[
-            'movies' => DB::table('movies')->paginate(20)
+        return view('movie.index', [
+            'movies' => Movie::paginate(15)
         ]);
     }
 
-    public function show(Movie $movie) {
-
-        return view('movie.show',[
+    public function show(Movie $movie): View
+    {
+        return view('movie.show', [
             'movie' => $movie
         ]);
     }
-
-
-
-
 
 
 }

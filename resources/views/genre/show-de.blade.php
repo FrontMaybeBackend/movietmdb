@@ -8,11 +8,11 @@
 </head>
 <body>
 <div>
-    <a href ="{{ route('genre.show-pl') }}">
-        <button type="submit">PL</button>
+    <a href="{{ route('genre.translate', ['language' => 'pl']) }}">
+        <button>PL</button>
     </a>
-    <a href ="{{ route('genre.show-de') }}">
-        <button type="submit">DE</button>
+    <a href="{{ route('genre.translate', ['language' => 'de']) }}">
+        <button>DE</button>
     </a>
     <table class="genres-table">
         <thead>
@@ -21,12 +21,12 @@
         </tr>
         </thead>
         <tbody>
-        @foreach($translationsPL as $translations)
-            <td>{{  __('genres.' . $translations->title) }}</td>
+        @foreach($translations as $translation)
+            <td>{{  __('genres.' . $translation->title) }}</td>
         @endforeach
         </tbody>
     </table>
-    {{$translationsPL->links()}}
+    {{$translations->links()}}
 </div>
 </body>
 </html>

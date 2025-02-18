@@ -14,22 +14,27 @@ Route::get('/', function () {
 Route::get('/movie/{movie}',[MovieController::class,'show'])->name('movie.show');
 Route::get('/movie', [MovieController::class,'index'])->name('movie');
 
-//Translations movies
-Route::get('/movie/show/pl', [TranslationMovieController::class, 'showTranslateMovieInPL'])->name('movie.show-pl');
-Route::get('/movie/show/de', [TranslationMovieController::class, 'showTranslateMovieInDE'])->name('movie.show-de');
-
-//Translations series
-Route::get('/series/show/pl', [TranslationSerieController::class, 'showTranslateSerieInPL'])->name('serie.show-pl');
-Route::get('/series/show/de', [TranslationSerieController::class, 'showTranslateSerieInDE'])->name('serie.show-de');
-
-//Translations genre
-Route::get('/genres/show/pl', [GenreController::class, 'showTranslateGenreInPL'])->name('genre.show-pl');
-Route::get('/genres/show/de', [GenreController::class, 'showTranslateGenreInDE'])->name('genre.show-de');
+Route::get('/genre/{genre}',[GenreController::class,'show'])->name('genre.show');
+Route::get('/genre', [GenreController::class,'index'])->name('genre');
 
 Route::get('/serie/{serie}', [SerieController::class,'show'])->name('serie.show');
 Route::get('/serie', [SerieController::class,'index'])->name('serie');
 
 
+Route::prefix('/genre')->group(function () {
+    Route::get('/show/{language}', [GenreController::class, 'showTranslate'])
+        ->name('genre.translate')
+        ->where(['language' => 'pl|de']);
+});
 
-Route::get('/genre/{genre}',[GenreController::class,'show'])->name('genre.show');
-Route::get('/genre', [GenreController::class,'index'])->name('genre');
+Route::prefix('/movie')->group(function () {
+    Route::get('/show/{language}', [TranslationMovieController::class, 'showTranslate'])
+        ->name('movie.translate')
+        ->where(['language' => 'pl|de']);
+});
+
+Route::prefix('/serie')->group(function () {
+    Route::get('/show/{language}', [TranslationSerieController::class, 'showTranslate'])
+        ->name('serie.translate')
+        ->where(['language' => 'pl|de']);
+});

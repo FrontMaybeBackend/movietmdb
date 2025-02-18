@@ -4,41 +4,34 @@ namespace App\Http\Controllers;
 
 use App\Models\Genre;
 use Illuminate\Support\Facades\App;
-use Illuminate\Support\Facades\DB;
+use Illuminate\View\View;
 
 class GenreController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(): View
     {
-        return view('genre.index',[
-            'genres'=> DB::table('genres')->paginate(10)
+        return view('genre.index', [
+            'genres' => Genre::paginate(15)
         ]);
     }
 
-    public function show(Genre $genre) {
-        return view('genre.show',[
+
+    public function show(Genre $genre): View
+    {
+        return view('genre.show', [
             'genre' => $genre
         ]);
     }
 
-    public function showTranslateGenreInPL()
+    public function showTranslate(string $language): View
     {
-        App::setlocale('pl');
-        $translationsPL = DB::table('genres')->paginate(10);
-        return view('genre.show-pl', [
-            'translationsPL' => $translationsPL
-        ]);
-    }
-
-    public function showTranslateGenreInDE()
-    {
-        App::setlocale('de');
-        $translationsDE = DB::table('genres')->paginate(10);
-        return view('genre.show-pl', [
-            'translationsPL' => $translationsDE
+        App::setlocale($language);
+        $translations = Genre::paginate(15);
+        return view("genre.show-{$language}", [
+            'translations' => $translations
         ]);
     }
 
