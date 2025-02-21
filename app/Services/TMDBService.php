@@ -34,6 +34,14 @@ class TMDBService
         ]);
     }
 
+    public static function getEpisodes(int $showId, int $seasonNumber)
+    {
+        return Http::get("https://api.themoviedb.org/3/tv/{$showId}/season/{$seasonNumber}", [
+            'api_key' => env('API_APP_KEY'),
+            'language' => 'en-US',
+        ]);
+    }
+
     public static function getGenres()
     {
         $movieGenres = Http::get('https://api.themoviedb.org/3/genre/movie/list', [
