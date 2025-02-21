@@ -39,7 +39,6 @@ class SeriesHelper
                         'title' => $serie['name'],
                         'overview' => $serie['overview'],
                         'tmdb_id' => $serie['id'],
-                        'slug' => Str::slug($serie['name'])
                     ];
 
                     $serieModel = Serie::query()->updateOrCreate(

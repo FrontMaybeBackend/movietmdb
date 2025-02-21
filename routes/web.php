@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\GenreController;
 use App\Http\Controllers\MovieController;
+use App\Http\Controllers\PrefixController;
 use App\Http\Controllers\SerieController;
 use App\Http\Controllers\TranslationMovieController;
 use App\Http\Controllers\TranslationSerieController;
@@ -42,3 +43,7 @@ Route::prefix('/serie')->group(function () {
         ->name('serie.translate')
         ->where(['language' => 'pl|de']);
 });
+Route::get('/prefix/{type}/edit', [PrefixController::class, 'edit'])->name('prefix.edit');
+Route::put('/prefix/{type}', [PrefixController::class, 'update'])->name('prefix.update');
+Route::get('/prefix/create', [PrefixController::class, 'create'])->name('prefix.create');
+Route::post('/prefix/store', [PrefixController::class, 'store'])->name('prefix.store');

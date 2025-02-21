@@ -17,7 +17,6 @@ class Movie extends Model
         'overview',
         'tmdb_id',
         'language',
-        'prefix',
         'slug',
     ];
 
@@ -28,7 +27,7 @@ class Movie extends Model
 
     public function getTitleWithPrefixAttribute(): string
     {
-        return "{$this->title}" . " " . "{$this->prefix}";
+        return "{$this->title}" . " " . $this->getPrefix();
     }
 
     public function getRouteKeyName(): string
@@ -36,17 +35,22 @@ class Movie extends Model
         return 'slug';
     }
 
+    public function getPrefix()
+    {
+        return Prefix::where('type','movie')->value('value') ?? '';
+    }
+
     protected static function boot()
     {
         parent::boot();
 
         static::creating(function ($movie) {
-            $movie->slug = Str::slug($movie->title . ' ' . $movie->prefix);
+            $movie->slug = Str::slug($movie->title_with_prefix);
         });
 
         static::updating(function ($movie) {
             if (!$movie->isDirty('slug')) {
-                $movie->slug = Str::slug($movie->title . ' ' . $movie->prefix);
+                $movie->slug = Str::slug($movie->title_with_prefix);
             }
         });
     }

@@ -32,7 +32,6 @@ class MoviesHelper
                         'overview' => $movie['overview'],
                         'tmdb_id' => $movie['id'],
                         'language' => $movie['original_language'],
-                        'slug' => Str::slug($movie['title'])
                     ];
 
                     Movie::query()->updateOrCreate(

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PrefixRequest;
 use App\Models\Movie;
+use Illuminate\Support\Facades\Response;
 use Illuminate\View\View;
 
 class MovieController extends Controller

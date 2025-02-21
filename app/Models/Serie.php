@@ -27,13 +27,16 @@ class Serie extends Model
         'overview',
         'tmdb_id',
         'translations',
-        'prefix',
         'slug'
     ];
 
+    public function getPrefix()
+    {
+        return Prefix::where('type', 'serie')->value('value') ?? '';
+    }
     public function getTitleWithPrefixAttribute(): string
     {
-        return "{$this->title}" . " " . "{$this->prefix}";
+        return "{$this->title}" . " " . $this->getPrefix();
     }
 
     public function getRouteKeyName(): string
@@ -44,13 +47,13 @@ class Serie extends Model
     protected static function boot()
     {
         parent::boot();
-        static::creating(function ($movie) {
-            $movie->slug = Str::slug($movie->title . ' ' . $movie->prefix);
+        static::creating(function ($serie) {
+            $serie->slug = Str::slug($serie->title_with_prefix);
         });
 
-        static::updating(function ($movie) {
-            if (!$movie->isDirty('slug')) {
-                $movie->slug = Str::slug($movie->title . ' ' . $movie->prefix);
+        static::updating(function ($serie) {
+            if (!$serie->isDirty('slug')) {
+                $serie->slug = Str::slug($serie->title_with_prefix);
             }
         });
     }
