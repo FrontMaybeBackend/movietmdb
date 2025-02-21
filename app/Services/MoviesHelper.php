@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Models\Movie;
+use Illuminate\Support\Str;
 
 class MoviesHelper
 {
@@ -31,6 +32,7 @@ class MoviesHelper
                         'overview' => $movie['overview'],
                         'tmdb_id' => $movie['id'],
                         'language' => $movie['original_language'],
+                        'slug' => Str::slug($movie['title'])
                     ];
 
                     Movie::query()->updateOrCreate(

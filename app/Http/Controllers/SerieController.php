@@ -19,11 +19,11 @@ class SerieController extends Controller
     }
 
 
-    public function show(Serie $serie): View
+    public function show(Serie $slug): View
     {
-        $seasons = $serie->seasons;
+        $seasons = $slug->seasons;
         return view('serie.show', [
-            'serie' => $serie,
+            'serie' => $slug,
             'seasons' => $seasons
         ]);
     }

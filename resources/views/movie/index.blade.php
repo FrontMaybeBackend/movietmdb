@@ -28,10 +28,10 @@
         @foreach($movies as $movie)
             <tr>
                 <td>{{ $movie->id }}</td>
-                <td>{{ $movie->title }}</td>
+                <td>{{ $movie->title_with_prefix }}</td>
                 <td>{{ $movie->overview }}</td>
                 <td>{{ $movie->tmdb_id }}</td>
-                <td> <a href="{{route('movie.show',$movie->id)}}">View</a></td>
+                <td> <a href="{{route('movie.show',$movie)}}">View</a></td>
             </tr>
         @endforeach
         </tbody>

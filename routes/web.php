@@ -11,16 +11,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/movie/{movie}',[MovieController::class,'show'])->name('movie.show');
+Route::get('/movie/{slug}',[MovieController::class,'show'])->name('movie.show');
 Route::get('/movie', [MovieController::class,'index'])->name('movie');
 
 Route::get('/genre/{genre}',[GenreController::class,'show'])->name('genre.show');
 Route::get('/genre', [GenreController::class,'index'])->name('genre');
 
-Route::get('/serie/{serie}', [SerieController::class,'show'])->name('serie.show');
-Route::get('/serie', [SerieController::class,'index'])->name('serie');
-Route::get('/series', [SerieController::class, 'index'])->name('serie.index');
-Route::get('/series/{serie}', [SerieController::class, 'show'])->name('serie.show');
+
+Route::get('/serie', [SerieController::class, 'index'])->name('serie.index');
+Route::get('/series/{slug}', [SerieController::class, 'show'])->name('serie.show');
 
 
 Route::get('/seasons/{season}', [SerieController::class, 'showSeason'])->name('season.show');

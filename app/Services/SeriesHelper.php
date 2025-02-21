@@ -5,6 +5,7 @@ namespace App\Services;
 use App\Models\Episode;
 use App\Models\Season;
 use App\Models\Serie;
+use Illuminate\Support\Str;
 
 class SeriesHelper
 {
@@ -38,6 +39,7 @@ class SeriesHelper
                         'title' => $serie['name'],
                         'overview' => $serie['overview'],
                         'tmdb_id' => $serie['id'],
+                        'slug' => Str::slug($serie['name'])
                     ];
 
                     $serieModel = Serie::query()->updateOrCreate(

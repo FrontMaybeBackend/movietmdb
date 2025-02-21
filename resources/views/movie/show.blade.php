@@ -20,11 +20,12 @@
         </thead>
         <tbody>
         <tr>
-            <td>{{ $movie->id }}</td>
-            <td>{{ $movie->title }}</td>
+            <td>{{ $movie->id }}  </td>
+            <td>{{$movie->title_with_prefix}}</td>
             <td>{{ $movie->overview }}</td>
             <td>{{ $movie->tmdb_id }}</td>
             <td>{{ $movie->translations }}</td>
+            <td>{{ $movie->prefix }}</td>
         </tr>
         </tbody>
     </table>

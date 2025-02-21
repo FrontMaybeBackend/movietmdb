@@ -28,10 +28,10 @@
         @foreach($series as $serie)
             <tr>
                 <td>{{ $serie->id }}</td>
-                <td>{{ $serie->title }}</td>
+                <td>{{ $serie->title_with_prefix }}</td>
                 <td>{{ $serie->overview }} </td>
                 <td>{{ $serie->tmdb_id }}</td>
-                <td> <a href="{{ route('serie.show', $serie->id) }}">View</a></td>
+                <td> <a href="{{ route('serie.show', $serie) }}">View</a></td>
             </tr>
         @endforeach
         </tbody>

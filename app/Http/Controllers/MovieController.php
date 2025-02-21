@@ -17,10 +17,10 @@ class MovieController extends Controller
         ]);
     }
 
-    public function show(Movie $movie): View
+    public function show(Movie $slug): View
     {
         return view('movie.show', [
-            'movie' => $movie
+            'movie' => $slug
         ]);
     }
 
