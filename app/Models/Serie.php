@@ -16,6 +16,11 @@ class Serie extends Model
         return $this->hasMany(TranslationSerie::class,'id','serie_id');
     }
 
+    public function seasons(): HasMany
+    {
+        return $this->hasMany(Season::class);
+    }
+
     protected $fillable = [
         'title',
         'overview',

@@ -19,6 +19,11 @@ Route::get('/genre', [GenreController::class,'index'])->name('genre');
 
 Route::get('/serie/{serie}', [SerieController::class,'show'])->name('serie.show');
 Route::get('/serie', [SerieController::class,'index'])->name('serie');
+Route::get('/series', [SerieController::class, 'index'])->name('serie.index');
+Route::get('/series/{serie}', [SerieController::class, 'show'])->name('serie.show');
+
+
+Route::get('/seasons/{season}', [SerieController::class, 'showSeason'])->name('season.show');
 
 
 Route::prefix('/genre')->group(function () {

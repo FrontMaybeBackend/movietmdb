@@ -3,32 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>series Table</title>
+    <title>{{ $serie->title }} - Seasons</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body>
 <div>
-    <table>
+    <h1>{{ $serie->title }}</h1>
+    <h2>Seasons</h2>
+    <table class="seasons-table">
         <thead>
         <tr>
-            <th>Id</th>
-            <th>Title</th>
+            <th>Season Number</th>
+            <th>Name</th>
             <th>Overview</th>
-            <th>tmdb_id</th>
-            <th>Translations</th>
+            <th>Action</th>
         </tr>
         </thead>
         <tbody>
+        @foreach($seasons as $season)
             <tr>
-                <td>{{ $serie->id }}</td>
-                <td>{{ $serie->title }}</td>
-                <td>{{ $serie->overview }}</td>
-                <td>{{ $serie->tmdb_id }}</td>
-                <td>{{ $serie->translations }}</td>
+                <td>{{ $season->season_number }}</td>
+                <td>{{ $season->name }}</td>
+                <td>{{ $season->overview }}</td>
+                <td><a href="{{ route('season.show', $season->id) }}">View Episodes</a></td>
             </tr>
+        @endforeach
         </tbody>
     </table>
-    <a href="{{ route('serie') }}">Back</a>
 </div>
 </body>
 </html>
